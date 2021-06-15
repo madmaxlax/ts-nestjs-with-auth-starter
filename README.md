@@ -7,6 +7,12 @@ you can use a .env file
 
 `AAD_JWKS`
 
+# Route to test: 
+
+`localhost:8000/foo`
+
+send a token as a bearer auth header
+
 ## Installation
 
 ```bash
