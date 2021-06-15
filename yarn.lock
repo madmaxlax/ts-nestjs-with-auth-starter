@@ -2376,6 +2376,11 @@ jest-worker@^27.0.2:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
+jose@^3.12.3:
+  version "3.12.3"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-3.12.3.tgz#9101a95d91b5ddb995e9f4033d3f4a20ff720d01"
+  integrity sha512-PtT5I/omolkItXxKu+BhyrBhoYpmJAIPiG+W00BwZ4I3gT9rl8pLnK5cs2ha0LAknMxLVvM3UexcuYwNUkQ7aw==
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"

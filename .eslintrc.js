@@ -20,6 +20,7 @@ module.exports = {
   ignorePatterns: ['src/hasura-gateway/GeneratedTypes.ts'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'object-curly-spacing': ['warn', 'always'],

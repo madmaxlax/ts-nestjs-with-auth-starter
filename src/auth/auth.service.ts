@@ -1,29 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import console from 'console';
-import { JwtService } from '@nestjs/jwt';
-import { UsersService } from 'src/users/users.service';
+import { createRemoteJWKSet } from 'jose/jwks/remote';
+import { jwtVerify } from 'jose/jwt/verify';
 
 @Injectable()
 export class AuthService {
-  constructor(private usersService: UsersService, private jwtService: JwtService) {}
+  constructor() {}
+  JWKS = createRemoteJWKSet(new URL(process.env.AAD_JWKS || 'https://login.microsoftonline.com/common/discovery/keys'));
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    console.log('here');
-    // const user = await this.usersService.findOne(username);
-    // if (user && user.password === pass) {
-    //   const { password, ...result } = user;
-    //   return result;
-    // }
-    // return null;
-    // always return true for no
-    return true;
-  }
+  async validateToken(token: string) {
+    console.log(token);
+    if (token) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { protectedHeader, payload } = await jwtVerify(token, this.JWKS);
+        if (
+          true // check for specific payload data here
 
-  async login(user: any) {
-    console.log('here3');
-    const payload = { username: user.username, sub: user.userId };
-    return {
-      access_token: this.jwtService.sign(payload),
-    };
+          // authorizedRoles.length &&
+          // (payload as any)['custom-roles']?.some((role) => authorizedRoles.includes(role))
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
+    return false;
   }
 }
