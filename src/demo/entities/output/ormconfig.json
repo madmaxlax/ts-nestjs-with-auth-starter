@@ -1,0 +1,13 @@
+[
+  {
+    "name": "default",
+    "type": "mssql",
+    "host": "testhcasandbox.database.windows.net",
+    "port": 1433,
+    "username": "sqladmin",
+    "password": "zQ@ggVu&LQ6JzwH!",
+    "database": "",
+    "synchronize": false,
+    "entities": ["entities/*.js"]
+  }
+]

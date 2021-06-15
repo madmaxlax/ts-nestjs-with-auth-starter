@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="6" failures="0" errors="0" time="6.595">
+  <testsuite name="NewTestResultController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:09" time="3.242" tests="1">
+    <testcase classname="NewTestResultController should be defined" name="NewTestResultController should be defined" time="0.067">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:09" time="3.249" tests="1">
+    <testcase classname="AppController getHello should return &quot;Hello World!&quot;" name="AppController getHello should return &quot;Hello World!&quot;" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="SitesController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:09" time="3.286" tests="1">
+    <testcase classname="SitesController should be defined" name="SitesController should be defined" time="0.063">
+    </testcase>
+  </testsuite>
+  <testsuite name="ShipmentsController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:10" time="3.193" tests="1">
+    <testcase classname="ShipmentsController should be defined" name="ShipmentsController should be defined" time="0.076">
+    </testcase>
+  </testsuite>
+  <testsuite name="NewTestController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:10" time="3.134" tests="1">
+    <testcase classname="NewTestController should be defined" name="NewTestController should be defined" time="0.018">
+    </testcase>
+  </testsuite>
+  <testsuite name="UsersController" errors="0" failures="0" skipped="0" timestamp="2021-02-10T14:59:09" time="3.432" tests="1">
+    <testcase classname="UsersController should be defined" name="UsersController should be defined" time="0.012">
+    </testcase>
+  </testsuite>
+</testsuites>
