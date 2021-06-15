@@ -1,6 +1,11 @@
 ## Description
 
-API based on Nest JS
+API based on Nest JS, implements a token validation checker for JWKS urls
+
+**Set up the JWKS URL environment variable**
+you can use a .env file
+
+`AAD_JWKS`
 
 ## Installation
 
