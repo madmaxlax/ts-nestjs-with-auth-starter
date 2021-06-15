@@ -1,4 +1,5 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { CanActivate, ExecutionContext, HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { Reflector } from '@nestjs/core';
 // import { PassportStrategy } from '@nestjs/passport';
 // import { Strategy, ExtractJwt } from 'passport-jwt';
 import { AuthService } from './auth.service';
@@ -6,13 +7,13 @@ import { AuthService } from './auth.service';
 @Injectable()
 // export class JwtAuthGuard extends AuthGuard('jwt') {}
 export class JwtAuthGuard implements CanActivate {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext) {
     const request = context.switchToHttp().getRequest();
+    const roles = this.reflector.get<string[]>('roles', context.getHandler()) || [];
     let token: string;
     try {
-      console.log(request.headers);
       //remove the bearer word
       token = request.headers.authorization.split(' ').pop();
       if (!token) {
@@ -22,7 +23,12 @@ export class JwtAuthGuard implements CanActivate {
       console.log('error getting token', e);
       return false;
     }
-    return this.authService.validateToken(token);
+    try {
+      const response = this.authService.validateToken(token, roles);
+      return response;
+    } catch (e) {
+      throw new HttpException('Auth Error: ' + e.message, HttpStatus.FORBIDDEN);
+    }
   }
 }
 
